@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using TopUp.Domain;
+using TopUp.Domain.Entities;
 using TopUp.Infrastructure.EntityConfigurations;
 
 namespace TopUp.Infrastructure
@@ -9,6 +10,9 @@ namespace TopUp.Infrastructure
     {
         public TopUpContext() { }
         public TopUpContext(DbContextOptions<TopUpContext> options) : base(options) { }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<Beneficiary> Beneficiaries { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
