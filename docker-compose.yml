@@ -5,17 +5,17 @@ services:
     image: mcr.microsoft.com/mssql/server:2019-latest
     user: root
     environment:
-      SA_PASSWORD: "BirminghamBank!202#"
+      SA_PASSWORD: "TopUpDb202#"
       ACCEPT_EULA: "Y"
       MSSQL_PID: "Express"
     ports:
-      - "1313:1313"
+      - "1313:1313" 
     volumes:
       - db_data:/var/opt/mssql/data
   banking-api:
     build: .
     environment:
-      CONNECTION_STRING: "Server=database;Initial Catalog=topUp;User Id=sa;Password=BirminghamBank!202#;Encrypt=False;TrustServerCertificate=True"
+      CONNECTION_STRING: "Server=database;Initial Catalog=topUp;User Id=sa;Password=TopUpDb202#;Encrypt=False;TrustServerCertificate=True"
       APP_NAME: "Banking API"
       ASPNETCORE_ENVIRONMENT: "Local"
       S3_LOCALSTACK_SERVICE_URL: "http://localstack:4566"
