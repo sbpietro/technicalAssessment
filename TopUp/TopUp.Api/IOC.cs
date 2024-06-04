@@ -8,8 +8,7 @@ namespace TopUp.Api
     {
         public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IBeneficiaryRepository, BeneficiaryRepository>();
+
             services.AddScoped<IBeneficiaryService, BeneficiaryService>();
 
             return services;

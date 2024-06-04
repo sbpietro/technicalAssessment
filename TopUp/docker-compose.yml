@@ -9,15 +9,15 @@ services:
       ACCEPT_EULA: "Y"
       MSSQL_PID: "Express"
     ports:
-      - "1313:1313" 
+      - "1433:1433" 
     volumes:
       - db_data:/var/opt/mssql/data
-  banking-api:
+  topup-api:
     build: .
     environment:
       CONNECTION_STRING: "Server=database;Initial Catalog=topUp;User Id=sa;Password=TopUpDb202#;Encrypt=False;TrustServerCertificate=True"
-      APP_NAME: "Banking API"
-      ASPNETCORE_ENVIRONMENT: "Local"
+      APP_NAME: "TopUp API"
+      ASPNETCORE_ENVIRONMENT: "Development"
       S3_LOCALSTACK_SERVICE_URL: "http://localstack:4566"
     depends_on:
       - database

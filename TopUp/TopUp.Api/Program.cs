@@ -9,6 +9,7 @@ builder.Configuration.AddEnvironmentVariables();
 // Add services to the container.
 
 builder.Services.AddServices(builder.Configuration);
+builder.Services.AddInfraModule(builder.Configuration);
 builder.Services.AddControllers(config =>
 {
     config.Filters.Add<GlobalExceptionFilter>();

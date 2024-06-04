@@ -33,7 +33,7 @@ namespace TopUp.Infrastructure
             public TopUpContext CreateDbContext(string[] args)
             {
                 var optionsBuilder = new DbContextOptionsBuilder<TopUpContext>()
-                    .UseSqlServer("Server=localhost;Initial Catalog=product;User Id=sa;Password=BirminghamBank!202#;Encrypt=False;TrustServerCertificate=True");
+                    .UseSqlServer("Server=localhost,1433;Initial Catalog=topup;User Id=sa;Password=TopUpDb202#;Encrypt=False;TrustServerCertificate=True");
 
                 return new TopUpContext(optionsBuilder.Options);
             }

@@ -10,6 +10,20 @@
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:8080"
     },
+    "sql-local": {
+      "commandName": "Project",
+      "workingDirectory": "./bin/Debug/net8.0",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Local",
+        "CONNECTION_STRING": "Server=localhost\\SQLEXPRESS;Database=banking;Integrated Security=True;Encrypt=False;TrustServerCertificate=True",
+        "APP_NAME": "Banking API",
+        "S3SETTINGS_UPLOADDOCUMENT_BUCKETNAME": "my-local-bucket",
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5253"
+    },
     "https": {
       "commandName": "Project",
       "launchBrowser": true,
