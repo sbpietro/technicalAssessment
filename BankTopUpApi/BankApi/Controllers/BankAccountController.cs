@@ -8,11 +8,11 @@ namespace BankApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BankController : ControllerBase
+    public class BankAccountController : ControllerBase
     {
         private readonly IBankAccountRepository _bankAccountRepository;
 
-        public BankController(IBankAccountRepository bankAccountRepository)
+        public BankAccountController(IBankAccountRepository bankAccountRepository)
         {
             _bankAccountRepository = bankAccountRepository;
         }
@@ -30,7 +30,7 @@ namespace BankApi.Controllers
         {
             var accountExists = await _bankAccountRepository.GetByUserIdAsync(request.UserId);
 
-            if (accountExists is null)
+            if (accountExists != null)
                 return BadRequest("Account for requested user already exists.");
 
             var bankAccount = new BankAccount()
@@ -46,7 +46,7 @@ namespace BankApi.Controllers
         }
 
         [HttpPost]
-        [Route("charge")]
+        [Route("topUp")]
         public async Task<IActionResult> ChargeTopUpTransaction(TopUpChargeRequest request)
         {
             var bankAccount = await _bankAccountRepository.GetByUserIdAsync(request.UserId);
@@ -60,7 +60,7 @@ namespace BankApi.Controllers
         }
 
         [HttpPut]
-        [Route("credit")]
+        [Route("addCredit")]
         public async Task<IActionResult> AddCreditToAccount(TopUpChargeRequest request)
         {
             var bankAccount = await _bankAccountRepository.GetByUserIdAsync(request.UserId);
