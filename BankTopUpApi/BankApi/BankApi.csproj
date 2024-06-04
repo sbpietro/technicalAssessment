@@ -14,4 +14,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BankApi.Application\BankApi.Application.csproj" />
+    <ProjectReference Include="..\BankApi.Domain\BankApi.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

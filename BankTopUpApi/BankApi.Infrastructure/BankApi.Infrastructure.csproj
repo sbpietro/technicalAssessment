@@ -17,9 +17,4 @@
     <ProjectReference Include="..\BankApi.Domain\BankApi.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="EntityConfigurations\" />
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>

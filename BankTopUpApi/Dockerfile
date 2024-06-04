@@ -3,16 +3,17 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER app
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
+EXPOSE 8082
+EXPOSE 8083
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["BankApi.csproj", "."]
-RUN dotnet restore "./BankApi.csproj"
+COPY ["BankApi/BankApi.csproj", "BankApi/"]
+#COPY ["TopUp.Api/TopUp.Api.csproj", "TopUp.Api/"]
+RUN dotnet restore "./BankApi/BankApi.csproj"
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/src/BankApi"
 RUN dotnet build "./BankApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish

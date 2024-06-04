@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using BankApi.Infrastructure.Repositories;
+using BankApi.Domain.Interfaces;
 
 
 namespace BankApi.Infrastructure
@@ -16,9 +18,7 @@ namespace BankApi.Infrastructure
         public static void AddInfraModule(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContexts(configuration);
-            //services.AddScoped<IUserRepository, UserRepository>();
-            //services.AddScoped<IBeneficiaryRepository, BeneficiaryRepository>();
-            //services.AddScoped<ITopUpTransactionRepository, TopUpTransactionRepository>();
+            services.AddScoped<IBankAccountRepository, BankAccountRepository>();
         }
 
         public static IServiceCollection AddDbContexts(this IServiceCollection services, IConfiguration configuration)
