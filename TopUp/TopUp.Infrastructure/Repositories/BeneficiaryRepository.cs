@@ -11,9 +11,21 @@ namespace TopUp.Infrastructure.Repositories
 
         public IUnitOfWork UnitOfWork => _context;
 
+        public BeneficiaryRepository(TopUpContext context)
+        {
+            _context = context;
+        }
+
         public async Task AddAsync(Beneficiary beneficiary)
         {
             await _context.AddAsync(beneficiary);
+        }
+
+        public async Task<Beneficiary> GetByIdAsync(Guid id)
+        {
+            return await _context.Beneficiaries
+                .Include(x => x.User)
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<int> GetBeneficiaryCountByUserAsync(Guid userId)

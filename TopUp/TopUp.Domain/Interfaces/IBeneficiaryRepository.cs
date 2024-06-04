@@ -11,6 +11,7 @@ namespace TopUp.Domain.Interfaces
     {
         public IUnitOfWork UnitOfWork { get; }
         Task<int> GetBeneficiaryCountByUserAsync(Guid userId);
+        Task<Beneficiary> GetByIdAsync(Guid id);
         Task AddAsync(Beneficiary beneficiary);
         Task<List<Beneficiary>> GetAllByUserIdAsync(Guid userId);
     }

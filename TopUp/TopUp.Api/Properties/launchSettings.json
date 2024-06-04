@@ -16,10 +16,10 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Local",
-        "CONNECTION_STRING": "Server=localhost\\SQLEXPRESS;Database=banking;Integrated Security=True;Encrypt=False;TrustServerCertificate=True",
-        "APP_NAME": "Banking API",
-        "S3SETTINGS_UPLOADDOCUMENT_BUCKETNAME": "my-local-bucket",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "CONNECTION_STRING": "Server=localhost,1433;Initial Catalog=topup;User Id=sa;Password=TopUpDb202#;Encrypt=False;TrustServerCertificate=True",
+        "APP_NAME": "TopUp API",
+        "S3SETTINGS_UPLOADDOCUMENT_BUCKETNAME": "my-local-bucket"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:5253"

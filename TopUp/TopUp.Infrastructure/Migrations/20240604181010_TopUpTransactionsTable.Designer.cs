@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TopUp.Infrastructure;
 
@@ -11,9 +12,11 @@ using TopUp.Infrastructure;
 namespace TopUp.Infrastructure.Migrations
 {
     [DbContext(typeof(TopUpContext))]
-    partial class TopUpContextModelSnapshot : ModelSnapshot
+    [Migration("20240604181010_TopUpTransactionsTable")]
+    partial class TopUpTransactionsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

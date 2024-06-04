@@ -19,6 +19,7 @@ namespace TopUp.Infrastructure
             services.AddDbContexts(configuration);
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IBeneficiaryRepository, BeneficiaryRepository>();
+            services.AddScoped<ITopUpTransactionRepository, TopUpTransactionRepository>();
         }
 
         public static IServiceCollection AddDbContexts(this IServiceCollection services, IConfiguration configuration)

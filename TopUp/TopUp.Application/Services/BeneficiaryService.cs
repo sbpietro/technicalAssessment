@@ -48,6 +48,7 @@ namespace TopUp.Application.Services
             };
 
             await _repository.AddAsync(beneficiary);
+            await _repository.UnitOfWork.SaveChangesAsync();
         }
     }
 }

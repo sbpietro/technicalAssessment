@@ -13,12 +13,13 @@ namespace TopUp.Infrastructure
 
         public DbSet<User> Users { get; set; }
         public DbSet<Beneficiary> Beneficiaries { get; set; }
+        public DbSet<TopUpTransaction> TopUpTransactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new BeneficiaryEntityTypeConfiguration());
-            
+            modelBuilder.ApplyConfiguration(new TopUpTransactionEntityTypeConfiguration());
         }
 
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)

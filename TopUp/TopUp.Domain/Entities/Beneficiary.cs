@@ -15,5 +15,7 @@ namespace TopUp.Domain.Entities
         public decimal TopUpBalance { get; set; }
         public Guid UserId { get; set; }
         public virtual User User { get; set; }
+
+        public virtual List<TopUpTransaction> TopUpTransactions { get; set; }
     }
 }

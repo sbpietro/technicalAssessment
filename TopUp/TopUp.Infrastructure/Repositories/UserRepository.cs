@@ -12,6 +12,11 @@ namespace TopUp.Infrastructure.Repositories
 
         public IUnitOfWork UnitOfWork => _context;
 
+        public UserRepository(TopUpContext context)
+        {
+            _context = context;
+        }
+
         public async Task AddAsync(User user)
         {
             await _context.AddAsync(user);

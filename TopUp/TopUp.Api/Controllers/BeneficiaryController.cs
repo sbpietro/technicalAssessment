@@ -17,7 +17,7 @@ namespace TopUp.Api.Controllers
         }
 
         [HttpGet]
-        [Route("userId/{Id}")]
+        [Route("userId/{id}")]
         public async Task<IActionResult> ViewBeneficiariesByUser(Guid id)
         {
             if (id == Guid.Empty)
