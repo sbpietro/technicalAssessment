@@ -12,5 +12,10 @@ namespace TopUp.Domain.Entities
         public string Email { get; set; }
         public bool IsVerified { get; set; } = true;
         public List<Beneficiary> Beneficiaries { get; set; } = new();
+
+        public void VerifyUser()
+        {
+            this.IsVerified = true;
+        }
     }
 }

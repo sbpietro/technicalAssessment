@@ -1,4 +1,6 @@
-﻿using TopUp.Domain;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Runtime.InteropServices;
+using TopUp.Domain;
 using TopUp.Domain.Entities;
 using TopUp.Domain.Interfaces;
 
@@ -15,6 +17,10 @@ namespace TopUp.Infrastructure.Repositories
             await _context.AddAsync(user);
         }
 
+        public async Task<User> GetByIdAsync(Guid id)
+        {
+            return await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
+        }
 
     }
 }
