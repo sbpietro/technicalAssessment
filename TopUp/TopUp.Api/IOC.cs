@@ -10,6 +10,7 @@ namespace TopUp.Api
         {
             services.AddScoped<ITransactionService, TransactionService>();
             services.AddScoped<IBeneficiaryService, BeneficiaryService>();
+            services.AddScoped<HttpClient>();
 
             return services;
         }

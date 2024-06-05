@@ -17,17 +17,20 @@ namespace TopUp.Api.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [Route("{id}")]
         public async Task<IActionResult> GetUserAsync(Guid id)
         {
             var user = await _userRepository.GetByIdAsync(id);
             if (user is null)
-                return NoContent();
+                return NotFound();
 
             return Ok(user);
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> AddUserAsync(AddUserRequest request)
         {
             var user = new User
@@ -45,7 +48,9 @@ namespace TopUp.Api.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> ValidateUserAsync(Guid id)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [Route("verify")]
+        public async Task<IActionResult> VerifyUserAsync(Guid id)
         {
             //This is handled by an external service outside of this scope
             //This endpoint provides mock behavior for validating users

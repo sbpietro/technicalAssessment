@@ -25,6 +25,8 @@ namespace BankApi.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Route("create")]
         public async Task<IActionResult> CreateAccount(TopUpChargeRequest request)
         {
@@ -46,6 +48,8 @@ namespace BankApi.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Route("topUp")]
         public async Task<IActionResult> ChargeTopUpTransaction(TopUpChargeRequest request)
         {

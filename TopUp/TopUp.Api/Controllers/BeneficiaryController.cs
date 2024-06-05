@@ -17,6 +17,8 @@ namespace TopUp.Api.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Route("userId/{id}")]
         public async Task<IActionResult> ViewBeneficiariesByUser(Guid id)
         {
@@ -28,6 +30,8 @@ namespace TopUp.Api.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddBeneficiary(AddBeneficiaryRequest request)
         {
             await _beneficiaryService.AddBeneficiaryAsync(request);

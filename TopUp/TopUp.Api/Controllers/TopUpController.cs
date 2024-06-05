@@ -20,12 +20,15 @@ namespace TopUp.Api.Controllers
 
         [HttpGet]
         [Route("options")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetTopOptionsAsync()
         {
             return Ok(Enum.GetValues<TopUpOptionsEnum>());
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateTopUpTransaction(CreateTopUpTransactionRequest request)
         {
             await _transactionService.CreateTopUpTransactionAsync(request);

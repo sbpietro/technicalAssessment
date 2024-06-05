@@ -98,9 +98,7 @@ namespace TopUp.Application.Services
 
         private async Task<bool> CreateTransactionOnBankApi(decimal amount, Guid userId)
         {
-            
             var request = new {  Amount = amount, UserId = userId };
-            //var jsonContent = JsonSerializer.Serialize(request);
 
             var response = await _httpClient.PostAsJsonAsync($"bankAccount/topUp", request);
             if (!response.IsSuccessStatusCode)
