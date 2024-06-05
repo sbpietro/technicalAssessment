@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  database:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    user: root
+    environment:
+      SA_PASSWORD: "TopUpDb202#"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Express"
+    ports:
+      - "1433:1433" 
+    volumes:
+      - db_data:/var/opt/mssql/data
+  topup-api:
+    build: .
+    environment:
+      CONNECTION_STRING: "Server=database;Initial Catalog=topUp;User Id=sa;Password=TopUpDb202#;Encrypt=False;TrustServerCertificate=True"
+      APP_NAME: "TopUp API"
+      ASPNETCORE_ENVIRONMENT: "Development"
+      S3_LOCALSTACK_SERVICE_URL: "http://localstack:4566"
+    depends_on:
+      - database
+    ports:
+      - "8080:80"
+volumes:
+  db_data:
