@@ -18,6 +18,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "CONNECTION_STRING": "Server=localhost,1433;Initial Catalog=topup;User Id=sa;Password=TopUpDb202#;Encrypt=False;TrustServerCertificate=True",
+        "BankApiEndpoint": "http://localhost:5254/",
         "APP_NAME": "TopUp API",
         "S3SETTINGS_UPLOADDOCUMENT_BUCKETNAME": "my-local-bucket"
       },

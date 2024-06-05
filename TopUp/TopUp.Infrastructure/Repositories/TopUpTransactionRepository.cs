@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TopUp.Domain;
+using TopUp.Domain.Entities;
 using TopUp.Domain.Interfaces;
 
 namespace TopUp.Infrastructure.Repositories
@@ -18,6 +19,11 @@ namespace TopUp.Infrastructure.Repositories
         public TopUpTransactionRepository(TopUpContext context)
         {
             _context = context;
+        }
+
+        public async Task AddAsync(TopUpTransaction topUpTransaction)
+        {
+            await _context.TopUpTransactions.AddAsync(topUpTransaction);
         }
 
         public async Task<decimal> GetAmountOnCurrentMonthAsync(Guid beneficiaryId)

@@ -50,6 +50,9 @@ namespace BankApi.Controllers
         public async Task<IActionResult> ChargeTopUpTransaction(TopUpChargeRequest request)
         {
             var bankAccount = await _bankAccountRepository.GetByUserIdAsync(request.UserId);
+            if (bankAccount is null)
+                return BadRequest("Bank Account does not exist for user.");
+
             //Adds 1 dollar charge to transaction amount
             request.Amount++;
 
@@ -64,6 +67,9 @@ namespace BankApi.Controllers
         public async Task<IActionResult> AddCreditToAccount(TopUpChargeRequest request)
         {
             var bankAccount = await _bankAccountRepository.GetByUserIdAsync(request.UserId);
+            if (bankAccount is null)
+                return BadRequest("Bank Account does not exist for user.");
+
             bankAccount.AddCreditToBalance(request.Amount);
             await _bankAccountRepository.UnitOfWork.SaveChangesAsync();
             return Ok();
